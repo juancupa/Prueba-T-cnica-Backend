@@ -30,7 +30,8 @@ El entorno completo se ejecuta con:
 --bash
 cada uno de los servisios
  - mvn clean package -DskipTests
-prpyecto principal 
+
+proyecto principal 
  - docker-compose up --build
 
 
