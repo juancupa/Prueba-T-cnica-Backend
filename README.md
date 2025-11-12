@@ -11,9 +11,12 @@ Ambos servicios utilizan **PostgreSQL**, están **dockerizados** y se comunican 
 
 
 +-------------------+ +------------------+
+
 | productos (8081) | <---> | inventario (8082)|
+
 +-------------------+ +------------------+
 | |
+
 +------ PostgreSQL -------+
 
 
@@ -51,18 +54,30 @@ x-api-key: SECRET123
 
  
 Productos  (http://localhost:8081/api/productos)
+
 Método	Endpoint	Descripción
+
 POST	  /	Crea    un producto y notifica inventario
+
 GET	    /all	    Lista todos los productos
+
 GET	    /{id}	    Obtiene producto por ID
+
 PUT	    /{id}	    Actualiza un producto
+
 DELETE	/{id}	    Elimina un producto
 
+
 Inventario  (http://localhost:8082/api/inventarios)
+
 Método	   Endpoint	                          Descripción
+
 POST	     /Crea                              inventario asociado a producto
+
 GET	       /{productoId}	                    Consulta inventario por producto
+
 PUT	       /{productoId}/reducir?cantidad=N 	Reduce stock disponible
+
 
 
 
@@ -73,9 +88,13 @@ Se implementaron pruebas unitarias y de integración con JUnit 5 y Mockito.
 Ejecución de todas las pruebas
 
 Tipo	     Microservicio	        Descripción
+
 Unit Test - Creación	            Productos	Verifica creación y guardado correcto
+
 Unit Test - Error	                Productos	Simula timeout o fallo al comunicar con inventario
+
 Unit Test - Reducción	Inventario	Reduce cantidad de stock
+
 
 Dependencias clave
 
@@ -86,11 +105,20 @@ Dependencias clave
 - Mockito
 
 
+
 Documentación API (Swagger UI)
+
 Cada microservicio expone su documentación OpenAPI en:
+
 Microservicio	URL Swagger
+
 Productos	
-  -http://localhost:8081/swagger-ui.html
+
+   -http://localhost:8081/swagger-ui.html
+   
 Inventario	
+
   -http://localhost:8082/swagger-ui.html
+  
 Swagger muestra los endpoints disponibles, los modelos y ejemplos de peticiones/respuestas.
+
