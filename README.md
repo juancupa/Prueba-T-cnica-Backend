@@ -28,6 +28,7 @@ Ambos servicios utilizan **PostgreSQL**, están **dockerizados** y se comunican 
 El entorno completo se ejecuta con:
 
 --bash
+
 cada uno de los servisios
  - mvn clean package -DskipTests
 
